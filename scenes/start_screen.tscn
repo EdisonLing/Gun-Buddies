@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvaawit4muabn"]
 
-[ext_resource type="Script" uid="uid://cmg8x10asj002" path="res://quit_button.gd" id="1_ncxyx"]
+[ext_resource type="Script" path="res://quit_button.gd" id="1_ncxyx"]
 
 [node name="Start Screen" type="Node2D"]
 
