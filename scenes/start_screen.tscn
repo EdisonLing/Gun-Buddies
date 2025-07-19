@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvaawit4muabn"]
 
-[ext_resource type="Script" path="res://quit_button.gd" id="1_ncxyx"]
+[ext_resource type="Script" uid="uid://cmg8x10asj002" path="res://quit_button.gd" id="1_ncxyx"]
 
 [node name="Start Screen" type="Node2D"]
 
@@ -23,18 +23,18 @@ layout_mode = 2
 theme_override_constants/separation = 20
 alignment = 1
 
-[node name="Label" type="Label" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
+[node name="Game Title" type="Label" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
 text = "Gun Buddie"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
+[node name="Start Button" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Start"
 
-[node name="Button2" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
+[node name="Options Button" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Options"
