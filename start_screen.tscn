@@ -26,7 +26,7 @@ alignment = 1
 [node name="Label" type="Label" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "Gun Buddies"
+text = "Gun Buddie"
 horizontal_alignment = 1
 
 [node name="Button" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
