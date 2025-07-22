@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=4 uid="uid://dbqrwgthemrr8"]
+
+[ext_resource type="Texture2D" uid="uid://c8c8e3hv1d1tp" path="res://assets/sprites/PlaceholderBlock.png" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://ds21qkxnpwtis" path="res://scenes/platform.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://drtc3olpwp72j" path="res://scenes/player.tscn" id="3_lnu2h"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
+texture = ExtResource("1_uwrxv")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_lnu2h"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_yqjtg")
+
+[node name="Game" type="Node2D"]
+
+[node name="Placeholder Map" type="TileMapLayer" parent="."]
+position = Vector2(127, -9)
+tile_map_data = PackedByteArray("AADp/woAAAAAAAAAAADq/woAAAAAAAAAAADr/woAAAAAAAAAAADs/woAAAAAAAAAAADt/woAAAAAAAAAAADu/woAAAAAAAAAAADv/woAAAAAAAAAAADw/woAAAAAAAAAAADx/woAAAAAAAAAAADy/woAAAAAAAAAAADz/woAAAAAAAAAAAD0/woAAAAAAAAAAAD1/woAAAAAAAAAAAD2/woAAAAAAAAAAAD3/woAAAAAAAAAAAD4/woAAAAAAAAAAAD5/woAAAAAAAAAAAD6/woAAAAAAAAAAAD7/woAAAAAAAAAAAD8/woAAAAAAAAAAAD9/woAAAAAAAAAAAD+/woAAAAAAAAAAAD//woAAAAAAAAAAAAAAAoAAAAAAAAAAAABAAoAAAAAAAAAAAACAAoAAAAAAAAAAAADAAoAAAAAAAAAAAAEAAoAAAAAAAAAAAAFAAoAAAAAAAAAAAAGAAoAAAAAAAAAAAAGAAkAAAAAAAAAAAAGAAgAAAAAAAAAAAAGAAcAAAAAAAAAAAAGAAYAAAAAAAAAAAAGAAUAAAAAAAAAAAAGAAQAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAAAAAAAAAAAAAAGAP//AAAAAAAAAAAGAP7/AAAAAAAAAAAGAP3/AAAAAAAAAAAGAPz/AAAAAAAAAAAGAPv/AAAAAAAAAAAGAPr/AAAAAAAAAAAGAPn/AAAAAAAAAAAFAPn/AAAAAAAAAAAEAPn/AAAAAAAAAAADAPn/AAAAAAAAAAACAPn/AAAAAAAAAAABAPn/AAAAAAAAAAAAAPn/AAAAAAAAAAD///n/AAAAAAAAAAD+//n/AAAAAAAAAAD9//n/AAAAAAAAAAD8//n/AAAAAAAAAAD7//n/AAAAAAAAAAD6//n/AAAAAAAAAAD5//n/AAAAAAAAAAD4//n/AAAAAAAAAAD3//n/AAAAAAAAAAD2//n/AAAAAAAAAAD1//n/AAAAAAAAAAD0//n/AAAAAAAAAADz//n/AAAAAAAAAADy//n/AAAAAAAAAADx//n/AAAAAAAAAADw//n/AAAAAAAAAADv//n/AAAAAAAAAADu//n/AAAAAAAAAADt//n/AAAAAAAAAADs//n/AAAAAAAAAADr//n/AAAAAAAAAADq//n/AAAAAAAAAADp//n/AAAAAAAAAADp//r/AAAAAAAAAADp//v/AAAAAAAAAADp//z/AAAAAAAAAADp//3/AAAAAAAAAADp//7/AAAAAAAAAADp////AAAAAAAAAADp/wAAAAAAAAAAAADp/wEAAAAAAAAAAADp/wIAAAAAAAAAAADp/wMAAAAAAAAAAADp/wQAAAAAAAAAAADp/wUAAAAAAAAAAADp/wYAAAAAAAAAAADp/wcAAAAAAAAAAADp/wgAAAAAAAAAAADp/wkAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_lnu2h")
+
+[node name="Platform" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(0, 95)
+
+[node name="player" parent="." instance=ExtResource("3_lnu2h")]
+z_index = -5
+position = Vector2(-1, 144)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+position = Vector2(0, 1)
+zoom = Vector2(7.63, 7.63)

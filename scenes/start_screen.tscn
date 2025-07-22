@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cvaawit4muabn"]
+[gd_scene load_steps=3 format=3 uid="uid://cvaawit4muabn"]
 
-[ext_resource type="Script" uid="uid://cmg8x10asj002" path="res://quit_button.gd" id="1_ncxyx"]
+[ext_resource type="Script" uid="uid://cmg8x10asj002" path="res://scripts/quit_button.gd" id="1_ncxyx"]
+[ext_resource type="Script" uid="uid://c7pr0jjwpnkmb" path="res://scripts/start_button.gd" id="1_o7i0r"]
 
 [node name="Start Screen" type="Node2D"]
 
@@ -26,13 +27,14 @@ alignment = 1
 [node name="Game Title" type="Label" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = "Gun Buddie"
+text = "Gun Buddies"
 horizontal_alignment = 1
 
 [node name="Start Button" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
 text = "Start"
+script = ExtResource("1_o7i0r")
 
 [node name="Options Button" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
@@ -48,4 +50,5 @@ script = ExtResource("1_ncxyx")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(926, 378)
 
+[connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/Start Button" to="CanvasLayer/Panel/CenterContainer/VBoxContainer/Start Button" method="_on_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/CenterContainer/VBoxContainer/Quit Button" to="CanvasLayer/Panel/CenterContainer/VBoxContainer/Quit Button" method="_on_pressed"]
