@@ -37,7 +37,7 @@ text = "Host"
 [node name="Join Button" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 50
-text = "Join Button"
+text = "Join"
 
 [node name="Options Button" type="Button" parent="CanvasLayer/Panel/CenterContainer/VBoxContainer"]
 layout_mode = 2
