@@ -11,9 +11,12 @@ config_version=5
 [application]
 
 config/name="Gun Buddies"
-run/main_scene="uid://cvaawit4muabn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+NetworkHandler="*res://scripts/network_handler.gd"
 
 [display]
 
