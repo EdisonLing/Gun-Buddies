@@ -3,7 +3,7 @@
 #	intended: using one of the setter functions, allows you to check & populate the values that are relevant
 #############################
 extends Node2D
-class_name Attack
+class_name Attack_old
 
 # node that a projectile would have its position tracked seperately by the engine itself (parent)
 func setProjectile(_velocity: Vector2, _damage: float, # mandatory
