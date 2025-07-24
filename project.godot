@@ -15,10 +15,6 @@ run/main_scene="uid://bccgup4e7qem6"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
-[autoload]
-
-NetworkHandler="*res://scripts/network_handler.gd"
-
 [display]
 
 window/size/viewport_width=1920

@@ -4,14 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://ds21qkxnpwtis" path="res://scenes/platform.tscn" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://drtc3olpwp72j" path="res://scenes/player.tscn" id="3_lnu2h"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("1_uwrxv")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_lnu2h"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_yqjtg")
+sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
 [node name="Game" type="Node2D"]
 
@@ -24,7 +24,6 @@ tile_set = SubResource("TileSet_lnu2h")
 position = Vector2(0, 95)
 
 [node name="player" parent="." instance=ExtResource("3_lnu2h")]
-z_index = -5
 position = Vector2(-1, 144)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
