@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=4 uid="uid://bccgup4e7qem6"]
+[gd_scene load_steps=4 format=4 uid="uid://bccgup4e7qem6"]
 
 [ext_resource type="Texture2D" uid="uid://c8c8e3hv1d1tp" path="res://assets/sprites/PlaceholderBlock.png" id="2_r2jwc"]
 
@@ -10,17 +10,6 @@ texture = ExtResource("2_r2jwc")
 [sub_resource type="TileSet" id="TileSet_5pab1"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hm208")
-
-[sub_resource type="GDScript" id="GDScript_tx5wa"]
-script/source = "extends VBoxContainer
-
-func _on_host_button_pressed() -> void:
-	NetworkHandler.start_server()
-
-func _on_join_button_pressed() -> void:
-	NetworkHandler.start_client()
- 
-"
 
 [node name="Start Screen" type="Node2D"]
 
@@ -50,7 +39,6 @@ offset_right = 409.0
 offset_bottom = 613.0
 theme_override_constants/separation = 20
 alignment = 1
-script = SubResource("GDScript_tx5wa")
 
 [node name="Host Button" type="Button" parent="CanvasLayer/Panel/UI"]
 layout_mode = 2
