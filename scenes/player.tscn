@@ -21,7 +21,7 @@ scale = Vector2(0.326171, 0.309571)
 texture = ExtResource("2_ghijl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20.8516, -19.1719)
+position = Vector2(21, -19)
 shape = SubResource("RectangleShape2D_lik2q")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
