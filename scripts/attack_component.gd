@@ -23,12 +23,14 @@ enum damageType { # determines how this damage is treated by the receiver (statu
 	TRUE
 }
 
-var attack_type: attackType = attackType.PROJECTILE
-var team_allegience: teamAllegiance = teamAllegiance.NEUTRAL
-var source: Node2D = null # optional owner of this ATTACK (used for character passives, and checking enemy vs teammate)
-var damage_type: damageType = damageType.NORMAL # eventually can have status effect type damage
-var damage: float = 10.0
+@export_group("Essential")
+@export var attack_type: attackType = attackType.PROJECTILE
+@export var team_allegience: teamAllegiance = teamAllegiance.NEUTRAL
+@export var source: Node2D = null # optional owner of this ATTACK (used for character passives, and checking enemy vs teammate)
 
-var stun_duration: float = 0.0
-var direction := Vector2(1.0, 1.0) # TEMP; for use with knockback
-var knockback_strength: float = 0.0
+@export_group("Behvaior")
+@export var damage_type: damageType = damageType.NORMAL # eventually can have status effect type damage
+@export var damage: float = 10.0
+@export var stun_duration: float = 0.0
+@export var direction := Vector2(1.0, 1.0) # TEMP; for use with knockback
+@export var knockback_strength: float = 0.0
