@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cthufqp08g4iw"]
+
+[ext_resource type="Script" uid="uid://inutwnic5bn6" path="res://scripts/player_base.gd" id="1_x1nsb"]
+[ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://scripts/health_component.gd" id="2_pd55g"]
+[ext_resource type="Script" uid="uid://4nk4usolsi2o" path="res://scripts/weapon_component.gd" id="3_pd55g"]
+
+[node name="PlayerBase" type="CharacterBody2D"]
+script = ExtResource("1_x1nsb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("2_pd55g")
+metadata/_custom_type_script = "uid://b35u6lkrvtoon"
+
+[node name="WeaponComponent" type="Node2D" parent="."]
+script = ExtResource("3_pd55g")
+metadata/_custom_type_script = "uid://4nk4usolsi2o"

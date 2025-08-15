@@ -67,11 +67,9 @@ tile_set = SubResource("TileSet_5pab1")
 
 [node name="Brown" type="TextureRect" parent="CanvasLayer/CanvasLayer/Brown Backdrop"]
 layout_mode = 0
-offset_left = 2.99003
-offset_top = 6.0
-offset_right = 1538.99
-offset_bottom = 1030.0
-scale = Vector2(1.24746, 1.04861)
+offset_right = 1536.0
+offset_bottom = 1024.0
+scale = Vector2(1.24842, 1.05313)
 texture = ExtResource("3_hm208")
 
 [node name="Training" type="Panel" parent="CanvasLayer"]
