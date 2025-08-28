@@ -11,6 +11,7 @@ texture = ExtResource("1_uwrxv")
 
 [sub_resource type="TileSet" id="TileSet_lnu2h"]
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_lnu2h")
 
 [node name="Game" type="Node2D"]
@@ -22,9 +23,12 @@ tile_set = SubResource("TileSet_lnu2h")
 
 [node name="Platform" parent="." instance=ExtResource("2_yqjtg")]
 position = Vector2(962, 990)
+collision_mask = 7
 
 [node name="Sheriff" parent="." instance=ExtResource("3_lnu2h")]
 position = Vector2(411, 987)
+collision_layer = 2
+collision_mask = 7
 
 [node name="Camera2D" type="Camera2D" parent="Sheriff"]
 position = Vector2(189, -394)

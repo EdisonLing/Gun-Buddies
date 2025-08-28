@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://e5p5ucfgsm87" path="res://assets/character_splash_art/cowboy_spash.png" id="1_he1sj"]
 [ext_resource type="Texture2D" uid="uid://c8c8e3hv1d1tp" path="res://assets/sprites/PlaceholderBlock.png" id="2_r2jwc"]
 [ext_resource type="Texture2D" uid="uid://4xo8gdnlwolg" path="res://assets/backgrounds/brown.png" id="3_hm208"]
-[ext_resource type="Script" uid="uid://dxeltlpadcf4q" path="res://scenes/ui.gd" id="3_r2jwc"]
+[ext_resource type="Script" path="res://scenes/ui.gd" id="3_r2jwc"]
 [ext_resource type="Texture2D" uid="uid://c3atgm3sbtd5c" path="res://assets/backgrounds/lobby.png" id="4_5pab1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5pab1"]

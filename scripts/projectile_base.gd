@@ -18,17 +18,24 @@ class_name ProjectileBase
 @export var hitbox_shape: CollisionShape2D
 
 
-func doesProjectileHit(_source: Node2D, _allegience: Attack.teamAllegiance):
+func doesProjectileHit(_source: Node2D, _allegience: Attack.teamAllegiance, _body_entered: Node2D):
 	#if ((attack_component.source is Player or attack_component.source is Ally) and (attack_component.team_allegience == Attack.teamAllegiance.MOBS or attack_component.team_allegience == Attack.teamAllegiance.NEUTRAL)) or (attack_component.source is Mob and (attack_component.team_allegience == Attack.teamAllegiance.PLAYERS or attack_component.team_allegience == Attack.teamAllegiance.NEUTRAL)):
-		print("Temp: function doesProjectileHit under ProjectileBase has been called, but is incomplete")
-		return true
+		if _body_entered is TileMapLayer:
+			print("projectile hit a wall")
+			return true
+		elif _body_entered is CharacterBody2D:
+			print("Temp: function doesProjectileHit under ProjectileBase has been called, but is incomplete. Must add allegience detection")
+			
+			return true
+		else: return false
 
 func _ready() -> void:
-	if sprite:
-		add_child(sprite)
+	#if sprite:
+		#add_child(sprite)
+	pass
 		
-	if hitbox_shape:
-		hitbox.add_child(hitbox_shape)
+	#if hitbox_shape:
+		#hitbox.add_child(hitbox_shape)
 
 func _physics_process(delta: float) -> void:
 	if !active: return
@@ -38,8 +45,24 @@ func _physics_process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if !active: return
 	#if Node2D is Player, enemy, etc do smthg, otherwise do nothing
-	if doesProjectileHit(attack_component.source, attack_component.team_allegience):
+	if doesProjectileHit(attack_component.source, attack_component.team_allegience, body):
 		#subtract from pierce count, or delete projectile
+		if body is StaticBody2D or body is TileMapLayer:#if projectile hits wall, decrement bounce_count and disappear if 0
+			
+			if(bounce_count == 0):
+				queue_free()
+			else:
+				print("Bounced off wall -> this code is ass, just assume theres no bouncing projectiles rn")
+				bounce_count -= 1
+				var normal := Vector2.ZERO
+				var velocity = Vector2.RIGHT.rotated(rotation) * speed
+				if abs(velocity.x) > abs(velocity.y):
+					normal = Vector2.LEFT  # vertical wall → flip X
+				else:
+					normal = Vector2.UP
+				velocity = velocity.bounce(normal)
+				rotation = velocity.angle()
+				
 		pass
 	pass
 
