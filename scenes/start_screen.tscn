@@ -7,14 +7,14 @@
 [ext_resource type="Script" uid="uid://dxeltlpadcf4q" path="res://scenes/ui.gd" id="3_r2jwc"]
 [ext_resource type="Texture2D" uid="uid://c3atgm3sbtd5c" path="res://assets/backgrounds/lobby.png" id="4_5pab1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hm208"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5pab1"]
 texture = ExtResource("2_r2jwc")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_5pab1"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_hm208")
+sources/0 = SubResource("TileSetAtlasSource_5pab1")
 
 [node name="Start Screen" type="Node2D"]
 

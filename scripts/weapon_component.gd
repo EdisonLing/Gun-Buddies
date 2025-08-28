@@ -1,7 +1,9 @@
 extends Node2D
 class_name WeaponComponent
 
-var current_weapon: WeaponBase
+@export_group("Essential")
+@export var current_weapon: WeaponBase
+
 var owner_actor: CharacterBody2D
 
 func _ready() -> void:
