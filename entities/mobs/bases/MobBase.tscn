@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dchmvt8i0mjhl"]
+
+[ext_resource type="Script" uid="uid://34rhnw1ermm7" path="res://entities/mobs/bases/mob_base.gd" id="1_cmo1g"]
+
+[node name="MobBase" type="CharacterBody2D"]
+script = ExtResource("1_cmo1g")

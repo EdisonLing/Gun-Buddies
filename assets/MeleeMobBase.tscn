@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://xm4q158rnmkf"]
+
+[ext_resource type="Script" uid="uid://iy55b4mhyu78" path="res://assets/melee_mob_base.gd" id="1_ev3am"]
+[ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="2_7tw7h"]
+
+[node name="MeleeMobBase" type="CharacterBody2D"]
+script = ExtResource("1_ev3am")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="HealthComponent" type="Node2D" parent="."]
+script = ExtResource("2_7tw7h")
+metadata/_custom_type_script = "uid://b35u6lkrvtoon"

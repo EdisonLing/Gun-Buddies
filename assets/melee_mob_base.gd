@@ -1,0 +1,2 @@
+extends MobBase
+class_name MeleeMobBase
