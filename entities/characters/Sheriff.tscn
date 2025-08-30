@@ -19,18 +19,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dtqk"]
-size = Vector2(49.5, 71.5)
+size = Vector2(27.75, 36)
 
 [node name="Sheriff" type="CharacterBody2D"]
 script = ExtResource("1_s5xyj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, -4)
-scale = Vector2(0.19877, 0.180328)
+position = Vector2(-1.90735e-06, 3.8147e-06)
+scale = Vector2(0.105533, 0.0922132)
 sprite_frames = SubResource("SpriteFrames_paghi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -5)
+position = Vector2(0.125, -1)
 shape = SubResource("RectangleShape2D_0dtqk")
 
 [node name="HealthComponent" type="Node2D" parent="."]
@@ -44,5 +44,5 @@ current_weapon = NodePath("Revolver")
 metadata/_custom_type_script = "uid://4nk4usolsi2o"
 
 [node name="Revolver" parent="WeaponComponent" instance=ExtResource("5_2vnek")]
-position = Vector2(41, -7)
+position = Vector2(20, -1)
 projectile_scene = ExtResource("5_7bng0")
