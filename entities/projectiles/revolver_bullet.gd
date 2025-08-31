@@ -8,7 +8,7 @@ func doesProjectileHit(_source: Node2D, _allegience: Attack.teamAllegiance, _bod
 			emit_signal("miss")
 			return true
 		elif _body_entered is MobBase and _allegience == Attack.teamAllegiance.PLAYERS:
-			print("Temp: function doesProjectileHit under ProjectileBase has been called, but is incomplete. Must add allegience detection")
+			#print("Temp: function doesProjectileHit under ProjectileBase has been called, but is incomplete. Must add allegience detection")
 			return true
 		elif _body_entered is PlayerBase and _allegience == Attack.teamAllegiance.MOBS:
 			return true
