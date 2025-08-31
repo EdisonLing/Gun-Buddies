@@ -34,6 +34,8 @@ func _physics_process(delta: float) -> void:
 			velocity.x = dir * move_speed
 		else:
 			velocity.x = 0.0
+	elif stunned:
+		pass
 	else:
 		velocity.x = 0.0
 
@@ -45,3 +47,10 @@ func stun(_incoming_stun_duration) -> void:
 		stun_timer.wait_time = _incoming_stun_duration
 		stun_timer.start()
 	return
+
+func knockback(direction: Vector2, strength: float, duration: float) -> void:
+	var dir = direction.normalized()
+	
+	velocity = dir * strength
+	stun(duration)
+	

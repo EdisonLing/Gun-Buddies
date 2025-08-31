@@ -56,7 +56,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				var mob: MobBase = body
 				mob.health_component.takeDamage(attack_component)
 				if attack_component.stun_duration > 0:
-					mob.stun(attack_component.stun_duration)
+					mob.knockback(Vector2.RIGHT.rotated(rotation) * speed, attack_component.knockback_strength, attack_component.stun_duration)
 				queue_free()
 				
 		pass
