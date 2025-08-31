@@ -17,7 +17,9 @@ var stun_duration: float = 0.0
 func _ready() -> void:
 	target = get_tree().get_first_node_in_group("player") as Node2D
 	if target == null:
-		push_warning("No node in group 'player' found. Mob will idle.")
+		print("No node in group 'player' found. Mob will idle.")
+	else:
+		print("Player set as target successfully")
 
 func _physics_process(delta: float) -> void:
 	stun_duration = stun_timer.time_left
@@ -42,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func stun(_incoming_stun_duration) -> void:
+	print("just stunned")
 	stunned = true
 	if _incoming_stun_duration > stun_duration:
 		stun_timer.wait_time = _incoming_stun_duration

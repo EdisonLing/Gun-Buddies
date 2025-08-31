@@ -12,3 +12,4 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	max_value = health_component.max_health
 	value = health_component.current_health
+	#print("value ; max: ", value, " ; ", max_value)

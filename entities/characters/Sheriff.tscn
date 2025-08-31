@@ -25,7 +25,7 @@ size = Vector2(22.9375, 30.5)
 
 [node name="Sheriff" type="CharacterBody2D" node_paths=PackedStringArray("hitbox_shape")]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 11
 script = ExtResource("1_s5xyj")
 hitbox_shape = NodePath("CollisionShape2D")
 

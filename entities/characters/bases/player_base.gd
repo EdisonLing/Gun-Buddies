@@ -10,7 +10,7 @@ class_name PlayerBase
 
 @onready var sprite = $AnimatedSprite2D
 @onready var weapon_component = $WeaponComponent
-@onready var health_component = $HealthComponent
+@onready var health_component: HealthComponent = $HealthComponent
 @onready var revolver: WeaponBase = $WeaponComponent/Revolver
 var max_health = 500
 
@@ -50,3 +50,7 @@ func _process(_dt: float) -> void:
 	# fire
 	if Input.is_action_pressed("shoot"):
 		weapon_component.try_fire()
+		
+func take_damage(_attack: Attack):
+	print("Player taking damage: ", _attack.damage)
+	health_component.takeDamage(_attack)
