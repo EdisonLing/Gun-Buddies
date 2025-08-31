@@ -20,6 +20,7 @@ scale = Vector2(0.0534979, 0.0514403)
 texture = ExtResource("3_vstha")
 
 [node name="AttackComponent" parent="." instance=ExtResource("2_01su4")]
+team_allegience = 1
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

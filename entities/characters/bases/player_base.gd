@@ -12,6 +12,7 @@ class_name PlayerBase
 @onready var weapon_component = $WeaponComponent
 @onready var health_component = $HealthComponent
 @onready var revolver: WeaponBase = $WeaponComponent/Revolver
+var max_health = 500
 
 var facing_right := true
 

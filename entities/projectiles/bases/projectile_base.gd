@@ -21,11 +21,11 @@ class_name ProjectileBase
 func doesProjectileHit(_source: Node2D, _allegience: Attack.teamAllegiance, _body_entered: Node2D):
 	#if ((attack_component.source is Player or attack_component.source is Ally) and (attack_component.team_allegience == Attack.teamAllegiance.MOBS or attack_component.team_allegience == Attack.teamAllegiance.NEUTRAL)) or (attack_component.source is Mob and (attack_component.team_allegience == Attack.teamAllegiance.PLAYERS or attack_component.team_allegience == Attack.teamAllegiance.NEUTRAL)):
 		if _body_entered is TileMapLayer:
-			print("projectile hit a wall")
 			return true
-		elif _body_entered is CharacterBody2D:
+		elif _body_entered is MobBase and _allegience == Attack.teamAllegiance.PLAYERS:
 			print("Temp: function doesProjectileHit under ProjectileBase has been called, but is incomplete. Must add allegience detection")
-			
+			return true
+		elif _body_entered is PlayerBase and _allegience == Attack.teamAllegiance.MOBS:
 			return true
 		else: return false
 
@@ -51,17 +51,11 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			
 			if(bounce_count == 0):
 				queue_free()
-			else:
-				print("Bounced off wall -> this code is ass, just assume theres no bouncing projectiles rn")
-				bounce_count -= 1
-				var normal := Vector2.ZERO
-				var velocity = Vector2.RIGHT.rotated(rotation) * speed
-				if abs(velocity.x) > abs(velocity.y):
-					normal = Vector2.LEFT  # vertical wall → flip X
-				else:
-					normal = Vector2.UP
-				velocity = velocity.bounce(normal)
-				rotation = velocity.angle()
+		elif body is MobBase and attack_component.team_allegience == Attack.teamAllegiance.PLAYERS:
+			if(pierce_count == 0):
+				var mob: MobBase = body
+				mob.health_component.takeDamage($AttackComponent)
+				queue_free()
 				
 		pass
 	pass
