@@ -9,7 +9,7 @@
 extends Node2D
 class_name ProjectileBase
 
-@onready var attack_component = $AttackComponent
+@onready var attack_component: Attack = $AttackComponent
 
 @onready var hitbox = $Area2D
 
@@ -54,7 +54,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		elif body is MobBase and attack_component.team_allegience == Attack.teamAllegiance.PLAYERS:
 			if(pierce_count == 0):
 				var mob: MobBase = body
-				mob.health_component.takeDamage($AttackComponent)
+				mob.health_component.takeDamage(attack_component)
+				if attack_component.stun_duration > 0:
+					mob.stun(attack_component.stun_duration)
 				queue_free()
 				
 		pass
