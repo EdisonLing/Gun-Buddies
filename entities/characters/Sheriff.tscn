@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjtd6enqnx1q5"]
+[gd_scene load_steps=11 format=3 uid="uid://bjtd6enqnx1q5"]
 
 [ext_resource type="Script" uid="uid://euiv6ahx1fwu" path="res://entities/characters/sheriff.gd" id="1_s5xyj"]
 [ext_resource type="Texture2D" uid="uid://cpvco18spf7p7" path="res://assets/sprites/characters/Sheriff.png" id="2_amhag"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" uid="uid://4nk4usolsi2o" path="res://entities/components/scripts/weapon_component.gd" id="4_7bng0"]
 [ext_resource type="PackedScene" uid="uid://c4e2stb5wdnx0" path="res://entities/weapons/Revolver.tscn" id="5_2vnek"]
 [ext_resource type="PackedScene" uid="uid://csxl8fxrh2lv8" path="res://entities/projectiles/RevolverBullet.tscn" id="5_7bng0"]
-[ext_resource type="Script" uid="uid://dav28lv1dna71" path="res://entities/weapons/revolver.gd" id="6_s5xyj"]
+[ext_resource type="Script" path="res://entities/weapons/revolver.gd" id="6_s5xyj"]
+[ext_resource type="PackedScene" uid="uid://dacgvugor6dvv" path="res://entities/components/HealthbarComponent.tscn" id="8_8uoce"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_paghi"]
 animations = [{
@@ -50,3 +51,13 @@ metadata/_custom_type_script = "uid://4nk4usolsi2o"
 position = Vector2(16, 0)
 script = ExtResource("6_s5xyj")
 projectile_scene = ExtResource("5_7bng0")
+
+[node name="HealthbarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_8uoce")]
+modulate = Color(0, 0.521569, 0.196078, 1)
+anchors_preset = 0
+offset_left = -36.0
+offset_top = 16.0
+offset_right = 36.0
+offset_bottom = 25.0
+grow_horizontal = 1
+health_component = NodePath("../HealthComponent")

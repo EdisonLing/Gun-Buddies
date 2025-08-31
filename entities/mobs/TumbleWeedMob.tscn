@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://b46ttg6on872o"]
+[gd_scene load_steps=6 format=3 uid="uid://b46ttg6on872o"]
 
 [ext_resource type="Script" uid="uid://w365aj01pskg" path="res://entities/mobs/tumble_weed_mob.gd" id="1_hapgo"]
 [ext_resource type="Texture2D" uid="uid://rsb204ep6cr0" path="res://assets/sprites/mobs/TumbleWeed.png" id="2_2us0m"]
 [ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="2_hshg8"]
+[ext_resource type="PackedScene" uid="uid://dacgvugor6dvv" path="res://entities/components/HealthbarComponent.tscn" id="2_qehof"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qehof"]
 radius = 10.4403
@@ -29,3 +30,14 @@ texture = ExtResource("2_2us0m")
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("2_hshg8")
 metadata/_custom_type_script = "uid://b35u6lkrvtoon"
+
+[node name="HealthbarComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_qehof")]
+anchors_preset = 0
+offset_left = -11.0
+offset_top = 10.0
+offset_right = 11.0
+offset_bottom = 14.0
+grow_horizontal = 1
+health_component = NodePath("../HealthComponent")
+
+[connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]

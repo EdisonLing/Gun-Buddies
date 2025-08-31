@@ -41,6 +41,7 @@ func takeDamage(attack: Attack) -> void:
 	
 	if current_health <= 0:
 		current_health = 0
+		print("emitted health_depleted signal")
 		emit_signal("health_depleted")
 		#AFTER THIS STEP, THE PARENT SHOULD DISAPPEAR
 	
