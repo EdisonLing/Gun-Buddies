@@ -4,3 +4,4 @@
 
 [node name="Revolver" type="Node2D"]
 script = ExtResource("1_ltppr")
+cooldown_secs = 0.35

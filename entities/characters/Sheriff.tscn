@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://4nk4usolsi2o" path="res://entities/components/scripts/weapon_component.gd" id="4_7bng0"]
 [ext_resource type="PackedScene" uid="uid://c4e2stb5wdnx0" path="res://entities/weapons/Revolver.tscn" id="5_2vnek"]
 [ext_resource type="PackedScene" uid="uid://csxl8fxrh2lv8" path="res://entities/projectiles/RevolverBullet.tscn" id="5_7bng0"]
-[ext_resource type="Script" path="res://entities/weapons/revolver.gd" id="6_s5xyj"]
+[ext_resource type="Script" uid="uid://dav28lv1dna71" path="res://entities/weapons/revolver.gd" id="6_s5xyj"]
 [ext_resource type="PackedScene" uid="uid://dacgvugor6dvv" path="res://entities/components/HealthbarComponent.tscn" id="8_8uoce"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_paghi"]
@@ -23,10 +23,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dtqk"]
 size = Vector2(22.9375, 30.5)
 
-[node name="Sheriff" type="CharacterBody2D"]
+[node name="Sheriff" type="CharacterBody2D" node_paths=PackedStringArray("hitbox_shape")]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_s5xyj")
+hitbox_shape = NodePath("CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-4.76837e-07, 1)
