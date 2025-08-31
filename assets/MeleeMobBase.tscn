@@ -4,6 +4,8 @@
 [ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="2_7tw7h"]
 
 [node name="MeleeMobBase" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
 script = ExtResource("1_ev3am")
 
 [node name="Hurtbox" type="Area2D" parent="."]
