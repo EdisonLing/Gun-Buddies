@@ -7,6 +7,7 @@ class_name MobBase
 
 @export var move_speed := 160.0
 @export var gravity := 1200.0
+@export var jump_velocity = -200
 @export var stop_distance := 8.0    # how close before stopping
 
 var target: Node2D
@@ -27,6 +28,8 @@ func _physics_process(delta: float) -> void:
 		stunned = false
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	if !is_instance_valid(target) and is_on_floor():
+		velocity.y = jump_velocity
 
 	if !stunned and target and is_instance_valid(target):
 		var dx := target.global_position.x - global_position.x
