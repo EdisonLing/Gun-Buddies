@@ -71,7 +71,7 @@ var knockback_z_velocity := 0.0
 
 func knockback(direction: Vector2, strength: float, duration: float) -> void:
 	var dir = direction.normalized()
-	var start_speed = strength
+	var start_speed = strength * Globals.random_in_percentage(1, 15)
 	var vertical_fraction = 0.1   # 50% of horizontal knockback strength
 	var vertical_strength = strength * vertical_fraction
 
