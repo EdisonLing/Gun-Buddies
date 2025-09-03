@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b46ttg6on872o"]
 
 [ext_resource type="Script" uid="uid://w365aj01pskg" path="res://entities/mobs/tumble_weed_mob.gd" id="1_hapgo"]
-[ext_resource type="Texture2D" uid="uid://rsb204ep6cr0" path="res://assets/sprites/mobs/TumbleWeed.png" id="2_2us0m"]
+[ext_resource type="Texture2D" uid="uid://dauhabpl231vu" path="res://assets/sprites/mobs/TumbleWeed.png" id="2_2us0m"]
 [ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="2_hshg8"]
 [ext_resource type="PackedScene" uid="uid://dacgvugor6dvv" path="res://entities/components/HealthbarComponent.tscn" id="2_qehof"]
 [ext_resource type="PackedScene" uid="uid://jwib2s54yu6p" path="res://entities/components/MeleeBase.tscn" id="5_qehof"]
