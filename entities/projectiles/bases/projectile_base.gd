@@ -59,7 +59,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 				if attack_component.stun_duration > 0:
 					mob.knockback(Vector2.RIGHT.rotated(rotation) * speed, attack_component.knockback_strength, attack_component.stun_duration)
 				queue_free()
-				
+		elif body is PlayerBase and attack_component.team_allegience == Attack.teamAllegiance.MOBS:
+			if(pierce_count == 0):
+				var player: PlayerBase = body
+				player.health_component.takeDamage(attack_component)
+				if(attack_component.stun_duration > 0):
+					pass#do nothing rn cuz player has no knockback/stun mechanic
 		pass
 	pass
 
