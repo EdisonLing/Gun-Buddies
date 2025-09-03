@@ -20,7 +20,7 @@ texture = ExtResource("3_vstha")
 [node name="AttackComponent" parent="." instance=ExtResource("2_01su4")]
 team_allegience = 1
 stun_duration = 0.2
-knockback_strength = 200.0
+knockback_strength = 500.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 4

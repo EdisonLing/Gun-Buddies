@@ -14,4 +14,4 @@ func _on_melee_damage_dealt(_target: Node2D, _source: Node2D) -> void:
 func retreat(mob: MobBase, player: PlayerBase):
 	var dir = (mob.global_position - player.global_position).normalized()
 	
-	knockback(dir, 150, 0.2)
+	knockback(dir, 1000, 0.2)

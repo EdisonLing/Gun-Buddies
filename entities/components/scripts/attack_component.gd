@@ -26,7 +26,7 @@ enum damageType { # determines how this damage is treated by the receiver (statu
 @export_group("Essential")
 @export var attack_type: attackType = attackType.PROJECTILE
 @export var team_allegience: teamAllegiance = teamAllegiance.NEUTRAL
-@export var source: Node2D = null # optional owner of this ATTACK (used for character passives, and checking enemy vs teammate)
+@export var source: CharacterBody2D = null # optional owner of this ATTACK (used for character passives, and checking enemy vs teammate)
 
 @export_group("Behvaior")
 @export var damage_type: damageType = damageType.NORMAL # eventually can have status effect type damage

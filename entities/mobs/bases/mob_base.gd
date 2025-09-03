@@ -30,6 +30,17 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta
 	if !is_instance_valid(target) and is_on_floor():
 		velocity.y = jump_velocity
+	# Apply vertical offset if active
+	knockback_z += knockback_z_velocity * delta
+	if knockback_z < 0.0:
+		knockback_z = 0.0
+
+	# >>> Add this line: convert "fake pop" into real vertical velocity (up is negative)
+	velocity.y -= knockback_z_velocity
+
+	# Optional: if on floor, kill any downward pop
+	if is_on_floor() and velocity.y > 0.0:
+		knockback_z_velocity = 0.0
 
 	if !stunned and target and is_instance_valid(target):
 		var dx := target.global_position.x - global_position.x
@@ -54,9 +65,28 @@ func stun(_incoming_stun_duration) -> void:
 		stun_timer.start()
 	return
 
+# Add this property to your character if not already there
+var knockback_z := 0.0      # vertical offset (fake height)
+var knockback_z_velocity := 0.0
+
 func knockback(direction: Vector2, strength: float, duration: float) -> void:
 	var dir = direction.normalized()
-	
-	velocity = dir * strength
+	var start_speed = strength
+	var vertical_fraction = 0.1   # 50% of horizontal knockback strength
+	var vertical_strength = strength * vertical_fraction
+
 	stun(duration)
+
+	# --- Horizontal knockback tween ---
+	var tween := create_tween()
+	tween.tween_method(func(speed):
+		velocity.x = dir.x * speed     # only touch X so gravity/jumps/vertical pop stay intact
+	, start_speed, 0.0, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
+	# --- Vertical knockback tween ---
+	var tween_z := create_tween()
+	tween_z.tween_method(func(z_vel):
+		knockback_z_velocity = z_vel
+	, vertical_strength, 0.0, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+
 	
