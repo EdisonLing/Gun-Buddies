@@ -4,6 +4,7 @@ class_name MobBase
 
 @export_group("Essential")
 @export var hitbox_shape: CollisionShape2D
+@onready var sprite = $AnimatedSprite2D
 
 @export var move_speed := 160.0
 @export var gravity := 1200.0
@@ -56,6 +57,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0.0
 
 	move_and_slide()
+	_update_anim()
 
 func stun(_incoming_stun_duration) -> void:
 	print("just stunned")
@@ -89,4 +91,6 @@ func knockback(direction: Vector2, strength: float, duration: float) -> void:
 		knockback_z_velocity = z_vel
 	, vertical_strength, 0.0, duration).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
 
-	
+	# to be overridden in children
+func _update_anim() -> void:
+	pass

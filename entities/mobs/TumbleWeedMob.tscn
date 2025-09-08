@@ -1,9 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b46ttg6on872o"]
+[gd_scene load_steps=9 format=3 uid="uid://b46ttg6on872o"]
 
 [ext_resource type="Script" uid="uid://w365aj01pskg" path="res://entities/mobs/tumble_weed_mob.gd" id="1_hapgo"]
-[ext_resource type="Texture2D" uid="uid://dauhabpl231vu" path="res://assets/sprites/mobs/TumbleWeed.png" id="2_2us0m"]
 [ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="2_hshg8"]
 [ext_resource type="PackedScene" uid="uid://dacgvugor6dvv" path="res://entities/components/HealthbarComponent.tscn" id="2_qehof"]
+[ext_resource type="Texture2D" uid="uid://c4bj6m6j3a8l6" path="res://assets/sprites/mobs/tumbleweed.png" id="5_kxftb"]
 [ext_resource type="PackedScene" uid="uid://jwib2s54yu6p" path="res://entities/components/MeleeBase.tscn" id="5_qehof"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2us0m"]
@@ -11,6 +11,17 @@ radius = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qehof"]
 radius = 10.4403
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4yy2v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_kxftb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="TumbleWeedMob" type="CharacterBody2D"]
 collision_layer = 8
@@ -23,11 +34,6 @@ collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_2us0m")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(4, 9)
-scale = Vector2(0.194085, 0.204208)
-texture = ExtResource("2_2us0m")
 
 [node name="HealthComponent" type="Node2D" parent="."]
 script = ExtResource("2_hshg8")
@@ -52,5 +58,10 @@ hitbox = NodePath("../Hurtbox")
 hitbox_shape = NodePath("../Hurtbox/CollisionShape2D")
 damage = 10.0
 damage_cooldown = 0.2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-5.96046e-08, 1)
+scale = Vector2(0.189425, 0.21349)
+sprite_frames = SubResource("SpriteFrames_4yy2v")
 
 [connection signal="health_depleted" from="HealthComponent" to="." method="_on_health_component_health_depleted"]

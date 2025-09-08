@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 
 	velocity.x = dir_x * speed
 	move_and_slide()
+	_update_anim()
 
 func _process(_dt: float) -> void:
 	# face the mouse (right vs left), flip only the body sprite
@@ -55,3 +56,11 @@ func _process(_dt: float) -> void:
 func take_damage(_attack: Attack):
 	print("Player taking damage: ", _attack.damage)
 	health_component.takeDamage(_attack)
+
+func _update_anim() -> void:
+	if is_on_floor():
+		if abs(velocity.x) > 0.1:
+			if sprite.animation != "run":
+				sprite.play("run")
+		else:
+			sprite.play("idle")

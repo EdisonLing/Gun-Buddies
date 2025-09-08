@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjtd6enqnx1q5"]
+[gd_scene load_steps=15 format=3 uid="uid://bjtd6enqnx1q5"]
 
 [ext_resource type="Script" uid="uid://euiv6ahx1fwu" path="res://entities/characters/sheriff.gd" id="1_s5xyj"]
-[ext_resource type="Texture2D" uid="uid://c10bfrbepkm1p" path="res://assets/sprites/characters/Sheriff.png" id="2_amhag"]
+[ext_resource type="Texture2D" uid="uid://clhlcjtwelgf" path="res://assets/sprites/characters/sherrif_animations.png" id="2_8uoce"]
 [ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="3_2vnek"]
 [ext_resource type="Script" uid="uid://4nk4usolsi2o" path="res://entities/components/scripts/weapon_component.gd" id="4_7bng0"]
 [ext_resource type="PackedScene" uid="uid://c4e2stb5wdnx0" path="res://entities/weapons/Revolver.tscn" id="5_2vnek"]
@@ -9,14 +9,44 @@
 [ext_resource type="Script" uid="uid://dav28lv1dna71" path="res://entities/weapons/revolver.gd" id="6_s5xyj"]
 [ext_resource type="PackedScene" uid="uid://dacgvugor6dvv" path="res://entities/components/HealthbarComponent.tscn" id="8_8uoce"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_npo2c"]
+atlas = ExtResource("2_8uoce")
+region = Rect2(29, 27, 112, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kd35b"]
+atlas = ExtResource("2_8uoce")
+region = Rect2(29, 27, 112, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0k43m"]
+atlas = ExtResource("2_8uoce")
+region = Rect2(141, 27, 112, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7ffw"]
+atlas = ExtResource("2_8uoce")
+region = Rect2(253, 27, 112, 115)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_paghi"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_amhag")
+"texture": SubResource("AtlasTexture_npo2c")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kd35b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0k43m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7ffw")
+}],
+"loop": true,
+"name": &"run",
 "speed": 5.0
 }]
 
@@ -30,9 +60,11 @@ script = ExtResource("1_s5xyj")
 hitbox_shape = NodePath("CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-4.76837e-07, 1)
-scale = Vector2(0.0855534, 0.0768443)
+texture_filter = 1
+position = Vector2(-2, 1)
+scale = Vector2(0.307569, 0.35091)
 sprite_frames = SubResource("SpriteFrames_paghi")
+animation = &"run"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.46875, 0.25)

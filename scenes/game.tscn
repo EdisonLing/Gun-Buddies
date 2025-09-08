@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=4 uid="uid://dee722wt0fu2f"]
 
-[ext_resource type="Texture2D" uid="uid://dq5i2brkwuvte" path="res://assets/sprites/tiles/PlaceholderBlock.png" id="1_78awf"]
-[ext_resource type="Texture2D" uid="uid://o3poyjqmxfjl" path="res://assets/sprites/tiles/Tileset.png" id="2_aug50"]
-[ext_resource type="PackedScene" uid="uid://ds21qkxnpwtis" path="res://scenes/platform.tscn" id="2_s0nni"]
+[ext_resource type="Texture2D" uid="uid://b2mfcbxjs4lkk" path="res://assets/sprites/tiles/PlaceholderBlock.png" id="1_78awf"]
+[ext_resource type="Texture2D" uid="uid://dvqeqy18h558k" path="res://assets/sprites/tiles/Tileset.png" id="2_aug50"]
+[ext_resource type="PackedScene" path="res://scenes/platform.tscn" id="2_s0nni"]
 [ext_resource type="PackedScene" uid="uid://bjtd6enqnx1q5" path="res://entities/characters/Sheriff.tscn" id="3_aug50"]
 [ext_resource type="PackedScene" uid="uid://b46ttg6on872o" path="res://entities/mobs/TumbleWeedMob.tscn" id="4_kiw3p"]
 
@@ -53,7 +53,7 @@ collision_mask = 7
 speed = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="Sheriff"]
-position = Vector2(-4, -133)
+position = Vector2(-2, -85)
 scale = Vector2(3.8, 1)
 zoom = Vector2(2.5, 2.5)
 
