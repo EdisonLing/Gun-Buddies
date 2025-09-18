@@ -10,9 +10,6 @@ func _ready():
 func _process(_delta: float) -> void:
 	pass
 
-func _on_health_component_health_depleted() -> void:
-	queue_free()
-
 func _update_anim() -> void:
 	if is_on_floor():
 		if velocity.x > 0:
@@ -21,3 +18,4 @@ func _update_anim() -> void:
 		elif velocity.x < 0:
 			sprite.flip_h = true
 			sprite.rotation -= 0.2
+	

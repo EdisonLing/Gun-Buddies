@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bjtd6enqnx1q5"]
+[gd_scene load_steps=16 format=3 uid="uid://bjtd6enqnx1q5"]
 
 [ext_resource type="Script" uid="uid://euiv6ahx1fwu" path="res://entities/characters/sheriff.gd" id="1_s5xyj"]
 [ext_resource type="Texture2D" uid="uid://clhlcjtwelgf" path="res://assets/sprites/characters/sherrif_animations.png" id="2_8uoce"]
@@ -12,6 +12,10 @@
 [sub_resource type="AtlasTexture" id="AtlasTexture_npo2c"]
 atlas = ExtResource("2_8uoce")
 region = Rect2(29, 27, 112, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uoce"]
+atlas = ExtResource("2_8uoce")
+region = Rect2(150, 257, 106, 117)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kd35b"]
 atlas = ExtResource("2_8uoce")
@@ -33,6 +37,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uoce")
+}],
+"loop": true,
+"name": &"jump",
 "speed": 5.0
 }, {
 "frames": [{
@@ -61,10 +73,10 @@ hitbox_shape = NodePath("CollisionShape2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(-2, 1)
+position = Vector2(1, -1)
 scale = Vector2(0.307569, 0.35091)
 sprite_frames = SubResource("SpriteFrames_paghi")
-animation = &"run"
+animation = &"jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1.46875, 0.25)

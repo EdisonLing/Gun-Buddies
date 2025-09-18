@@ -64,3 +64,5 @@ func _update_anim() -> void:
 				sprite.play("run")
 		else:
 			sprite.play("idle")
+	else:
+		sprite.animation = "jump"

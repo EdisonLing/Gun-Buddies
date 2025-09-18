@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bawknprkqbvxx"]
+
+[ext_resource type="Texture2D" uid="uid://b288s6206vo0w" path="res://assets/sprites/bartender.png" id="1_xv4j8"]
+
+[node name="Bartender" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 1.90735e-06)
+scale = Vector2(0.219169, 0.202648)
+texture = ExtResource("1_xv4j8")

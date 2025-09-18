@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Globals="*res://globals.gd"
+RunManager="*res://scenes/run_manager.gd"
 
 [display]
 

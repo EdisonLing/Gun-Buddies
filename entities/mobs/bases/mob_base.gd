@@ -94,3 +94,7 @@ func knockback(direction: Vector2, strength: float, duration: float) -> void:
 	# to be overridden in children
 func _update_anim() -> void:
 	pass
+
+func _on_health_component_health_depleted() -> void:
+	RunManager.add_score(1) # this value can be adjust per mob
+	queue_free()

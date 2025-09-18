@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://xm4q158rnmkf"]
+
+[ext_resource type="Script" uid="uid://iy55b4mhyu78" path="res://entities/mobs/bases/melee_mob_base.gd" id="1_esxqj"]
+
+[node name="MeleeMobBase" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_esxqj")
