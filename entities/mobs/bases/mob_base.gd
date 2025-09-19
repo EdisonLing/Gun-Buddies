@@ -5,6 +5,8 @@ class_name MobBase
 @export_group("Essential")
 @export var hitbox_shape: CollisionShape2D
 @onready var sprite = $AnimatedSprite2D
+@export var spawn_value: int = 1 #how much score is deducted when spawning this mob
+@export var kill_value: int = 1 #how much score players get when killing mob
 
 @export var move_speed := 160.0
 @export var gravity := 1200.0
@@ -95,6 +97,6 @@ func knockback(direction: Vector2, strength: float, duration: float) -> void:
 func _update_anim() -> void:
 	pass
 
-func _on_health_component_health_depleted() -> void:
-	RunManager.add_score(1) # this value can be adjust per mob
+func _on_health_component_health_depleted() -> void:	
+	RunManager.add_score(kill_value) # this value can be adjust per mob
 	queue_free()

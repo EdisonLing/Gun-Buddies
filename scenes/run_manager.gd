@@ -8,6 +8,8 @@ signal time_changed(seconds:int)
 var seed:int
 var rng := RandomNumberGenerator.new() # each run should have unique paths
 var score:int = 0
+var wave: int = 0
+var mob_count: int = 0
 var combo:int = 0
 var seconds:int = 0
 var _tick := 0.0
