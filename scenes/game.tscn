@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dee722wt0fu2f"]
+[gd_scene load_steps=12 format=4 uid="uid://dee722wt0fu2f"]
 
 [ext_resource type="Texture2D" uid="uid://dq5i2brkwuvte" path="res://assets/sprites/tiles/PlaceholderBlock.png" id="1_78awf"]
 [ext_resource type="Texture2D" uid="uid://o3poyjqmxfjl" path="res://assets/sprites/tiles/Tileset.png" id="2_aug50"]
@@ -31,6 +31,12 @@ texture = ExtResource("2_aug50")
 
 [sub_resource type="TileSet" id="TileSet_400sg"]
 sources/0 = SubResource("TileSetAtlasSource_kiw3p")
+
+[sub_resource type="Curve2D" id="Curve2D_p57ef"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 952, 1040, 0, 0, 0, 0, 46, 1039, 0, 0, 0, 0, 45, 911, 0, 0, 0, 0, 332, 909, 0, 0, 0, 0, 332, 940, 0, 0, 0, 0, 89, 940, 0, 0, 0, 0, 89, 969, 0, 0, 0, 0, 434, 969, 0, 0, 0, 0, 434, 995, 0, 0, 0, 0, 90, 994, 0, 0, 0, 0, 91, 1017, 0, 0, 0, 0, 893, 1018, 0, 0, 0, 0, 892, 895, 0, 0, 0, 0, 1012, 897, 0, 0, 0, 0, 1012, 913, 0, 0, 0, 0, 906, 912, 0, 0, 0, 0, 907, 931, 0, 0, 0, 0, 1012, 930, 0, 0, 0, 0, 1011, 948, 0, 0, 0, 0, 909, 948, 0, 0, 0, 0, 909, 968, 0, 0, 0, 0, 1009, 967, 0, 0, 0, 0, 1007, 986, 0, 0, 0, 0, 909, 987, 0, 0, 0, 0, 908, 1017, 0, 0, 0, 0, 1829, 1020, 0, 0, 0, 0, 1828, 1001, 0, 0, 0, 0, 1491, 999, 0, 0, 0, 0, 1490, 978, 0, 0, 0, 0, 1828, 981, 0, 0, 0, 0, 1828, 959, 0, 0, 0, 0, 1661, 958, 0, 0, 0, 0, 1662, 938, 0, 0, 0, 0, 1869, 938, 0, 0, 0, 0, 1868, 1041, 0, 0, 0, 0, 952, 1040)
+}
+point_count = 36
 
 [node name="Game" type="Node2D"]
 
@@ -71,3 +77,10 @@ position = Vector2(797, 1019)
 
 [node name="TumbleWeedMob3" parent="." instance=ExtResource("4_kiw3p")]
 position = Vector2(610, 1036)
+
+[node name="SpawnerPath" type="Path2D" parent="."]
+curve = SubResource("Curve2D_p57ef")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="SpawnerPath"]
+position = Vector2(952, 1040)
+rotation = -3.14049
