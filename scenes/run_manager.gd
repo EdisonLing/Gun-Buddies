@@ -4,6 +4,7 @@ signal run_ended(victory:bool, score:int)
 signal score_changed(score:int)
 signal combo_changed(combo:int)
 signal time_changed(seconds:int)
+signal wave_defeated()
 
 var seed:int
 var rng := RandomNumberGenerator.new() # each run should have unique paths
@@ -45,3 +46,14 @@ func add_combo(inc:int = 1) -> void:
 func reset_combo() -> void:
 	combo = 0
 	emit_signal("combo_changed", combo)
+	
+func add_mob_count(amount:int) -> void:
+	mob_count += amount
+	
+func reduce_mob_count(amount:int) -> void:
+	if(mob_count >= amount):
+		mob_count -= amount
+	else:
+		mob_count = 0
+	if mob_count == 0:
+		emit_signal("wave_defeated")

@@ -21,6 +21,7 @@ func _process(delta: float) -> void:
 	#start first wave logic
 	if(Input.is_action_just_pressed("start wave")):
 		spawn_wave(3)
+	print(RunManager.mob_count)
 	
 func spawn_wave(optional_spawn_count: int = 0): #if -1, spawn according to score, otherwise spawn x amount of tumbleweed (only used for first wave)
 	if(optional_spawn_count > 0):
@@ -29,6 +30,7 @@ func spawn_wave(optional_spawn_count: int = 0): #if -1, spawn according to score
 			var mob_instance = mob_scene.instantiate()
 			mob_instance.position = get_random_spawn_position()
 			add_child(mob_instance)
+			RunManager.add_mob_count(1)
 		return
 	
 	print("spawn_wave - temp: initiate spawn wave")
@@ -43,6 +45,7 @@ func spawn_wave(optional_spawn_count: int = 0): #if -1, spawn according to score
 				var mob_instance = mob_scene.instantiate()
 				mob_instance.position = get_random_spawn_position()
 				add_child(mob_instance)
+				RunManager.add_mob_count(1)
 
 func helper_get_mob(mob_type: String):
 	if mob_type == "Boss":

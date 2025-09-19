@@ -99,4 +99,5 @@ func _update_anim() -> void:
 
 func _on_health_component_health_depleted() -> void:	
 	RunManager.add_score(kill_value) # this value can be adjust per mob
+	RunManager.reduce_mob_count(1)
 	queue_free()
