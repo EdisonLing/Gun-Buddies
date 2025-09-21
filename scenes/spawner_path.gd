@@ -43,21 +43,20 @@ func spawn_wave(optional_spawn_count: int = 0): #if -1, spawn according to score
 			mob_instance.position = get_random_spawn_position()
 			add_child(mob_instance)
 			RunManager.add_mob_count(1)
-		return
-	
-	print("spawn_wave - temp: initiate spawn wave")
-	var spawn_list: Dictionary = get_mob_type_spawn_list()
-	
-	for mob_type in spawn_list.keys():
-		var mob_count: int = spawn_list[mob_type]
+	else: 
+		print("spawn_wave - temp: initiate spawn wave")
+		var spawn_list: Dictionary = get_mob_type_spawn_list()
+		
+		for mob_type in spawn_list.keys():
+			var mob_count: int = spawn_list[mob_type]
 
-		for i in mob_count:
-			var mob_scene: PackedScene = helper_get_mob(mob_type)
-			if mob_scene:
-				var mob_instance = mob_scene.instantiate()
-				mob_instance.position = get_random_spawn_position()
-				add_child(mob_instance)
-				RunManager.add_mob_count(1)
+			for i in mob_count:
+				var mob_scene: PackedScene = helper_get_mob(mob_type)
+				if mob_scene:
+					var mob_instance = mob_scene.instantiate()
+					mob_instance.position = get_random_spawn_position()
+					add_child(mob_instance)
+					RunManager.add_mob_count(1)
 
 func helper_get_mob(mob_type: String):
 	if mob_type == "Boss":
