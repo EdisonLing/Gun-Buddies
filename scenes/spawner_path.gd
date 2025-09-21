@@ -6,14 +6,15 @@ const num_minibosses = 0
 const num_strong_enemies = 0
 const num_weak_enemies = 1
 
-
+const WAVE_WAIT_TIME = 3.0
 
 @export var min_spawn_distance: float = 10 #radius around player that enemies cannot spawn in
 @export var player: PlayerBase
 
+@onready var wave_timer: Timer = get_parent().get_node("WaveTimer")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	RunManager.wave_defeated.connect(_on_wave_defeated_signal)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,6 +26,14 @@ func _process(delta: float) -> void:
 		RunManager.start_run()
 		print("game started")
 	#print(RunManager.mob_count)
+
+func _on_wave_defeated_signal():
+	print("on wave defeated signal function called")
+	if !wave_timer.is_stopped():
+		await wave_timer.timeout
+	wave_timer.start(WAVE_WAIT_TIME)
+	await wave_timer.timeout
+	spawn_wave()
 	
 func spawn_wave(optional_spawn_count: int = 0): #if -1, spawn according to score, otherwise spawn x amount of tumbleweed (only used for first wave)
 	if(optional_spawn_count > 0):
@@ -91,6 +100,8 @@ func get_mob_type_spawn_list():
 		temp_score -= 1
 	if temp_score > 0:
 		print("get_spawn_list: spawning logic did not use up all of score (unexpected)")
+	print("Spawning: ", mob_spawn_dict)
+	return mob_spawn_dict
 
 func get_random_spawn_position() -> Vector2:
 	var attempt_count: int = 0

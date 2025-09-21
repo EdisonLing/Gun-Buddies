@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://dee722wt0fu2f"]
 
-[ext_resource type="Texture2D" uid="uid://b2mfcbxjs4lkk" path="res://assets/sprites/tiles/PlaceholderBlock.png" id="1_78awf"]
-[ext_resource type="Texture2D" uid="uid://dvqeqy18h558k" path="res://assets/sprites/tiles/Tileset.png" id="2_aug50"]
+[ext_resource type="Texture2D" uid="uid://cc74ysl57qc6t" path="res://assets/sprites/tiles/PlaceholderBlock.png" id="1_78awf"]
+[ext_resource type="Texture2D" uid="uid://b04kfwh4w6q1k" path="res://assets/sprites/tiles/Tileset.png" id="2_aug50"]
 [ext_resource type="PackedScene" uid="uid://blrki4cyt4ydl" path="res://scenes/platform.tscn" id="2_s0nni"]
 [ext_resource type="PackedScene" uid="uid://bjtd6enqnx1q5" path="res://entities/characters/Sheriff.tscn" id="3_aug50"]
 [ext_resource type="Script" uid="uid://cvcnbua5k2vm1" path="res://scenes/run_manager.gd" id="6_p57ef"]
@@ -75,7 +75,6 @@ scale = Vector2(3.8, 1)
 zoom = Vector2(2.5, 2.5)
 
 [node name="SpawnerPath" type="Path2D" parent="." node_paths=PackedStringArray("player")]
-unique_name_in_owner = true
 curve = SubResource("Curve2D_p57ef")
 script = ExtResource("7_u5sy4")
 min_spawn_distance = 100.0
@@ -87,3 +86,6 @@ rotation = -3.14049
 
 [node name="Bartender" parent="." instance=ExtResource("7_gee14")]
 position = Vector2(950, 1034)
+
+[node name="WaveTimer" type="Timer" parent="."]
+one_shot = true

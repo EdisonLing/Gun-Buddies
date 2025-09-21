@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://bjtd6enqnx1q5"]
 
 [ext_resource type="Script" uid="uid://euiv6ahx1fwu" path="res://entities/characters/sheriff.gd" id="1_s5xyj"]
-[ext_resource type="Texture2D" uid="uid://clhlcjtwelgf" path="res://assets/sprites/characters/sherrif_animations.png" id="2_8uoce"]
+[ext_resource type="Texture2D" uid="uid://c3lk3owov0c0w" path="res://assets/sprites/characters/sherrif_animations.png" id="2_8uoce"]
 [ext_resource type="PackedScene" uid="uid://b6riksxy4sdd3" path="res://entities/ui/RevolverAmmoUI.tscn" id="2_npo2c"]
 [ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="3_2vnek"]
 [ext_resource type="Script" uid="uid://4nk4usolsi2o" path="res://entities/components/scripts/weapon_component.gd" id="4_7bng0"]
