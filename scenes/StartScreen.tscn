@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=4 uid="uid://bccgup4e7qem6"]
 
 [ext_resource type="PackedScene" uid="uid://bjtd6enqnx1q5" path="res://entities/characters/Sheriff.tscn" id="1_5pab1"]
-[ext_resource type="Texture2D" uid="uid://e5p5ucfgsm87" path="res://assets/sprites/projectiles/cowboy_spash.png" id="1_he1sj"]
-[ext_resource type="Texture2D" uid="uid://c8c8e3hv1d1tp" path="res://assets/sprites/tiles/PlaceholderBlock.png" id="2_r2jwc"]
-[ext_resource type="Texture2D" uid="uid://4xo8gdnlwolg" path="res://assets/backgrounds/brown.png" id="3_hm208"]
+[ext_resource type="Texture2D" uid="uid://5b23yjabxm4h" path="res://assets/sprites/projectiles/cowboy_spash.png" id="1_he1sj"]
+[ext_resource type="Texture2D" uid="uid://cc74ysl57qc6t" path="res://assets/sprites/tiles/PlaceholderBlock.png" id="2_r2jwc"]
+[ext_resource type="Texture2D" uid="uid://bq4ek3kbo7bcv" path="res://assets/backgrounds/brown.png" id="3_hm208"]
 [ext_resource type="Script" uid="uid://dxeltlpadcf4q" path="res://scenes/ui.gd" id="3_r2jwc"]
-[ext_resource type="Texture2D" uid="uid://c3atgm3sbtd5c" path="res://assets/backgrounds/lobby.png" id="4_5pab1"]
+[ext_resource type="Texture2D" uid="uid://dx3wvfffg4ru3" path="res://assets/backgrounds/lobby.png" id="4_5pab1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5pab1"]
 texture = ExtResource("2_r2jwc")

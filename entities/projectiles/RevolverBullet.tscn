@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://vwmu8ose6e51" path="res://entities/projectiles/revolver_bullet.gd" id="1_la7vk"]
 [ext_resource type="PackedScene" uid="uid://c0bf8jxm155at" path="res://entities/components/AttackComponent.tscn" id="2_01su4"]
-[ext_resource type="Texture2D" uid="uid://xciyqv7r81s6" path="res://assets/sprites/action sprites/RevolverBullet.png" id="3_vstha"]
+[ext_resource type="Texture2D" uid="uid://bl7rjpblaltj1" path="res://assets/sprites/action sprites/RevolverBullet.png" id="3_vstha"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n6o2q"]
 radius = 2.0

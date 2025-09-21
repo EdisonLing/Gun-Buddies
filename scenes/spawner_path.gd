@@ -19,9 +19,12 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#start first wave logic
-	if(Input.is_action_just_pressed("start wave")):
+	if(!RunManager.game_started && Input.is_action_just_pressed("start wave")):
+		RunManager.game_started = true
 		spawn_wave(3)
-	print(RunManager.mob_count)
+		RunManager.start_run()
+		print("game started")
+	#print(RunManager.mob_count)
 	
 func spawn_wave(optional_spawn_count: int = 0): #if -1, spawn according to score, otherwise spawn x amount of tumbleweed (only used for first wave)
 	if(optional_spawn_count > 0):
