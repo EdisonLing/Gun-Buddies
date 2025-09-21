@@ -5,6 +5,6 @@
 [node name="Bartender" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 1.90735e-06)
-scale = Vector2(0.219169, 0.202648)
+position = Vector2(0.999998, -0.999999)
+scale = Vector2(0.285495, 0.265745)
 texture = ExtResource("1_xv4j8")

@@ -1,7 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bjtd6enqnx1q5"]
+[gd_scene load_steps=19 format=3 uid="uid://bjtd6enqnx1q5"]
 
 [ext_resource type="Script" uid="uid://euiv6ahx1fwu" path="res://entities/characters/sheriff.gd" id="1_s5xyj"]
-[ext_resource type="Texture2D" uid="uid://dlethw167c8sf" path="res://assets/sprites/characters/sherrif_animations.png" id="2_8uoce"]
+[ext_resource type="Texture2D" uid="uid://clhlcjtwelgf" path="res://assets/sprites/characters/sherrif_animations.png" id="2_8uoce"]
 [ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="3_2vnek"]
 [ext_resource type="Script" uid="uid://4nk4usolsi2o" path="res://entities/components/scripts/weapon_component.gd" id="4_7bng0"]
 [ext_resource type="PackedScene" uid="uid://c4e2stb5wdnx0" path="res://entities/weapons/Revolver.tscn" id="5_2vnek"]
@@ -28,6 +28,18 @@ region = Rect2(141, 27, 112, 115)
 [sub_resource type="AtlasTexture" id="AtlasTexture_t7ffw"]
 atlas = ExtResource("2_8uoce")
 region = Rect2(253, 27, 112, 115)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58toy"]
+atlas = ExtResource("2_8uoce")
+region = Rect2(44, 492, 106, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_76s0b"]
+atlas = ExtResource("2_8uoce")
+region = Rect2(150, 492, 106, 117)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tj8dp"]
+atlas = ExtResource("2_8uoce")
+region = Rect2(256, 492, 106, 117)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_paghi"]
 animations = [{
@@ -60,26 +72,46 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58toy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_76s0b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tj8dp")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dtqk"]
-size = Vector2(22.9375, 30.5)
+size = Vector2(22.9375, 32.5)
 
 [node name="Sheriff" type="CharacterBody2D" node_paths=PackedStringArray("hitbox_shape")]
 collision_layer = 2
 collision_mask = 11
 script = ExtResource("1_s5xyj")
 hitbox_shape = NodePath("CollisionShape2D")
+jump_velocity = -220.0
+slide_speed = 650.0
+slide_duration = 1.2
+slide_friction = 0.97
+slide_hitbox_size = Vector2(25, 20)
+slide_hitbox_offset = Vector2(0, -1)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1, -1)
-scale = Vector2(0.307569, 0.35091)
+position = Vector2(2, 2.84217e-14)
+scale = Vector2(0.323596, 0.363489)
 sprite_frames = SubResource("SpriteFrames_paghi")
-animation = &"jump"
+animation = &"slide"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.46875, 0.25)
+position = Vector2(-1.46875, -0.75)
 shape = SubResource("RectangleShape2D_0dtqk")
 
 [node name="HealthComponent" type="Node2D" parent="."]
