@@ -105,7 +105,7 @@ func _process(_dt: float) -> void:
 		revolver.position.x = abs(revolver.position.x) * -1
 			
 	# fire (can't fire while sliding for balance)
-	if Input.is_action_pressed("shoot") and not is_sliding:
+	if Input.is_action_pressed("shoot"):
 		weapon_component.try_fire()
 		
 func take_damage(_attack: Attack):
