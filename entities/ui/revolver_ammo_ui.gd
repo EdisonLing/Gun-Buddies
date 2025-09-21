@@ -74,8 +74,8 @@ func _process(_delta):
 		# Follow player
 		global_position = player.global_position + offset_above_player
 		# Debug: print position occasionally
-		if Engine.get_process_frames() % 60 == 0:  # Every second
-			print("UI position: ", global_position, " Player position: ", player.global_position)
+		#if Engine.get_process_frames() % 60 == 0:  # Every second
+			#print("UI position: ", global_position, " Player position: ", player.global_position)
 
 func _on_ammo_changed(current: int, max: int):
 	current_bullets = current
