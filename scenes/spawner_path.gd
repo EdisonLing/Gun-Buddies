@@ -87,7 +87,7 @@ func helper_get_mob(mob_type: String):
 
 #chooses which mobs spawn as a function of game score
 func get_mob_type_spawn_list():
-	var temp_score = RunManager.score
+	var temp_score = RunManager.score + 2
 	
 	var mob_spawn_dict = {"Boss": 0,
 	"Mini Boss": 0,
