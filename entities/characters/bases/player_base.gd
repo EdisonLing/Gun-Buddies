@@ -1,9 +1,6 @@
 extends CharacterBody2D
 class_name PlayerBase
 
-@export_group("Essential")
-@export var hitbox_shape: CollisionShape2D
-
 @export_group("Stats")
 @export var speed := 220.0
 @export var jump_velocity := -420.0
@@ -12,6 +9,7 @@ class_name PlayerBase
 @export var slide_friction := 0.9
 
 @export_group("Hitbox Settings")
+@export var hitbox_shape: CollisionShape2D
 @export var normal_hitbox_size := Vector2(20, 40)
 @export var normal_hitbox_offset := Vector2(0, 0)
 @export var slide_hitbox_size := Vector2(40, 20)
@@ -21,11 +19,16 @@ class_name PlayerBase
 @onready var weapon_component = $WeaponComponent
 @onready var health_component: HealthComponent = $HealthComponent
 @onready var revolver: WeaponBase = $WeaponComponent/Revolver
+@export var platform_layer := 2           # layer index (1–32)
+@export var drop_through_time := 0.25     # seconds to ignore platforms
+
 
 var max_health = 500
 var kill_count = 0
 var facing_right := true
 var double_jump := false
+var _dropping := false
+
 
 # Slide variables
 var is_sliding := false
@@ -47,11 +50,16 @@ func _physics_process(delta: float) -> void:
 	# reset double jump
 	if is_on_floor():
 		double_jump = false
+		
 	# Handle slide input
 	if Input.is_action_just_pressed("slide") and is_on_floor() and not is_sliding and abs(dir_x) > 0.1:
 		print("slide")
 		start_slide(dir_x)
 	
+	# Handle drop down
+	if Input.is_action_just_pressed("drop_down") and is_on_floor() and not _dropping:
+		_drop_through_platforms()
+		
 	# Handle sliding
 	if is_sliding:
 		handle_slide(delta)
@@ -143,3 +151,19 @@ func adjust_hitbox_for_normal() -> void:
 		var rect_shape = hitbox_shape.shape as RectangleShape2D
 		rect_shape.size = normal_hitbox_size
 		hitbox_shape.position = normal_hitbox_offset
+
+func _drop_through_platforms() -> void:
+	_dropping = true
+	# stop treating platform layer as "floor" and ignore its collisions
+	var bit := 1 << (platform_layer - 1)
+	platform_floor_layers &= ~bit
+	set_collision_mask_value(platform_layer, false)
+
+	# ensure we start falling
+	velocity.y = max(velocity.y, 10)
+
+	# re-enable after a short delay
+	await get_tree().create_timer(drop_through_time).timeout
+	set_collision_mask_value(platform_layer, true)
+	platform_floor_layers |= bit
+	_dropping = false

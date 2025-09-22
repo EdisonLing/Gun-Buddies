@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://bjtd6enqnx1q5"]
 
 [ext_resource type="Script" uid="uid://euiv6ahx1fwu" path="res://entities/characters/sheriff.gd" id="1_s5xyj"]
-[ext_resource type="Texture2D" uid="uid://c3lk3owov0c0w" path="res://assets/sprites/characters/sherrif_animations.png" id="2_8uoce"]
+[ext_resource type="Texture2D" uid="uid://clhlcjtwelgf" path="res://assets/sprites/characters/sherrif_animations.png" id="2_8uoce"]
 [ext_resource type="PackedScene" uid="uid://b6riksxy4sdd3" path="res://entities/ui/RevolverAmmoUI.tscn" id="2_npo2c"]
 [ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="3_2vnek"]
 [ext_resource type="Script" uid="uid://4nk4usolsi2o" path="res://entities/components/scripts/weapon_component.gd" id="4_7bng0"]
@@ -96,11 +96,11 @@ size = Vector2(22.9375, 32.5)
 collision_layer = 2
 collision_mask = 11
 script = ExtResource("1_s5xyj")
-hitbox_shape = NodePath("CollisionShape2D")
 jump_velocity = -220.0
 slide_speed = 650.0
 slide_duration = 1.2
 slide_friction = 0.97
+hitbox_shape = NodePath("CollisionShape2D")
 slide_hitbox_size = Vector2(25, 20)
 slide_hitbox_offset = Vector2(0, -1)
 
