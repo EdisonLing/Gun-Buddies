@@ -15,6 +15,7 @@ var combo:int = 0
 var seconds:int = 0
 var game_started:bool = false
 var _tick := 0.0
+var current_wave: int = 1
 
 func start_run(new_seed:int = Time.get_unix_time_from_system()) -> void:
 	seed = new_seed
@@ -59,3 +60,6 @@ func reduce_mob_count(amount:int) -> void:
 	if mob_count == 0:
 		emit_signal("wave_defeated")
 		print("emitted wave defeated signal")
+
+func start_new_wave():
+	current_wave += 1
