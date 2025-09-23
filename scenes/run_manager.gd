@@ -59,7 +59,5 @@ func reduce_mob_count(amount:int) -> void:
 		mob_count = 0
 	if mob_count == 0:
 		emit_signal("wave_defeated")
+		current_wave += 1
 		print("emitted wave defeated signal")
-
-func start_new_wave():
-	current_wave += 1

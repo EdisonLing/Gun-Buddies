@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://w365aj01pskg" path="res://entities/mobs/tumble_weed_mob.gd" id="1_hapgo"]
 [ext_resource type="Script" uid="uid://b35u6lkrvtoon" path="res://entities/components/scripts/health_component.gd" id="2_hshg8"]
 [ext_resource type="PackedScene" uid="uid://dacgvugor6dvv" path="res://entities/components/HealthbarComponent.tscn" id="2_qehof"]
-[ext_resource type="Texture2D" uid="uid://dauhabpl231vu" path="res://assets/sprites/mobs/TumbleWeed.png" id="5_kxftb"]
+[ext_resource type="Texture2D" uid="uid://c4bj6m6j3a8l6" path="res://assets/sprites/mobs/TumbleWeed.png" id="5_kxftb"]
 [ext_resource type="PackedScene" uid="uid://jwib2s54yu6p" path="res://entities/components/MeleeBase.tscn" id="5_qehof"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2us0m"]
@@ -24,6 +24,7 @@ animations = [{
 }]
 
 [node name="TumbleWeedMob" type="CharacterBody2D"]
+z_index = 1
 collision_layer = 8
 collision_mask = 7
 script = ExtResource("1_hapgo")

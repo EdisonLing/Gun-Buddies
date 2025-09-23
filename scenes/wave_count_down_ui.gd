@@ -94,6 +94,7 @@ func _on_wave_defeated():
 	start_countdown(10.0)  # Match WAVE_WAIT_TIME from spawner
 	wave_info_label.text = "Wave " + str(RunManager.current_wave) + " Complete!"
 
+
 func start_countdown(duration: float):
 	countdown_timer = duration
 	is_counting_down = true
